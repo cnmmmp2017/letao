@@ -64,7 +64,30 @@
             </ol>
 
             <!-- 内容区域 -->
-          
+            <div class="lt_content">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td width="10%">序号</td>
+                            <td width="30%">用户名</td>
+                            <td width="30%">手机号</td>
+                            <td width="20%">状态</td>
+                            <td width="10%">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>itcast</td>
+                            <td>1234678</td>
+                            <td>正常</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm">禁用</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -91,6 +114,26 @@
         </div>
     </div>
 
+    <script type="text/html" id="tpl">
+        {{each rows v i }}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.username}}</td>
+            <td>{{v.mobile}}</td>
+            <td>{{v.isDelete===1?'正常':'禁用'}}</td>
+            <td>
+                {{if v.isDelete===1}}
+                <button class="btn btn-danger btn-sm">禁用</button>
+                {{/if}}
+                {{if v.isDelete===0}}
+                <button class="btn btn-success btn-sm">启用</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+
+    </script>
+
 
 
 
@@ -99,7 +142,9 @@
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/user.js"></script>
     
 </body>
 </html>

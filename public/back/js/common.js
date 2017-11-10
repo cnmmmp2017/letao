@@ -16,10 +16,10 @@ if(location.href.indexOf("login.html") == -1){
     });
 }
 
-$(document).ajaxStart(function(){
+$(document).ajaxStop(function(){
     setTimeout(function() {
         NProgress.done();
-    }, 500);        
+    }, 100);        
 });
 
 // 二级菜单隐藏
